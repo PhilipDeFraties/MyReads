@@ -3,10 +3,10 @@ const ListBooks = ({books}) => {
     const sortBooks = (books) => {
         let sortedBooks = {};
         books.forEach((book) => {
-            if (booksObj[book.shelf]) {
-                booksObj[book.shelf].push(book)
+            if (sortedBooks[book.shelf]) {
+                sortedBooks[book.shelf].push(book)
              } else {
-                booksObj[book.shelf] = [book]
+                sortedBooks[book.shelf] = [book]
              };
         });
         return sortedBooks;
