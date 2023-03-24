@@ -30,7 +30,7 @@ const ListBooks = ({books}) => {
     );
 };
 
-ListBooks.PropTypes = {
+ListBooks.propTypes = {
     books: PropTypes.array.isRequired,
 };
 
