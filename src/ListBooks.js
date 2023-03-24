@@ -1,18 +1,23 @@
 import PropTypes from "prop-types";
-const ListBooks = ({books}) => {
-    const sortBooks = (books) => {
-        let sortedBooks = {};
-        books.forEach((book) => {
-            if (sortedBooks[book.shelf]) {
-                sortedBooks[book.shelf].push(book)
-             } else {
-                sortedBooks[book.shelf] = [book]
-             };
-        });
-        return sortedBooks;
-    };
+import BookShelf from "./BookShelf.js"
 
-    const booksByStatus = sortBooks(books);
+const ListBooks = ({books}) => {
+    const wantToReadbooks = {
+        name: "Want To Read",
+        books: books.filter(b => b.shelf === "wantToRead")
+    }
+
+    const currentlyReadingBooks = {
+        name: "Currently Reading",
+        books: books.filter(b => b.shelf === "currentlyReading")
+    }
+
+    const readBooks = {
+        name: "Read",
+        books: books.filter(b => b.shelf === "read")
+    }
+
+    const sortedBooks = [wantToReadbooks, currentlyReadingBooks, readBooks]
 
     return (
         <div className="list-books">
@@ -20,8 +25,15 @@ const ListBooks = ({books}) => {
                 <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <div>
-                </div>
+                <ol>
+                    {sortedBooks.map((shelf) => (
+                        <BookShelf 
+                            key={shelf.name}
+                            name={shelf.name}
+                            books={shelf.books}
+                        />
+                    ))}
+                </ol>
             </div>
             <div className="open-search">
                 <a>Add a book</a>
