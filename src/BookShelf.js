@@ -1,14 +1,18 @@
+import Book from "./Book";
+
 const BookShelf = ({name, books}) => {
-    console.log(books)
-    console.log(name)
     return (
         <div className="bookshelf">
-            <h2 className="bookshelf-title">Currently Reading</h2>
+            <h2 className="bookshelf-title">{name}</h2>
             <div className="bookshelf-books">
-                Map over books
+                <ol className="books-grid">
+                    {books.map((book) => (
+                        <Book key={book.title} title={book.title}/>
+                    ))}
+                </ol>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default BookShelf;
