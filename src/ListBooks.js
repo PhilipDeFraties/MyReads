@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const ListBooks = ({books}) => {
     const sortBooks = (books) => {
         let sortedBooks = {};
@@ -27,6 +28,10 @@ const ListBooks = ({books}) => {
             </div>
         </div>
     );
+};
+
+ListBooks.PropTypes = {
+    books: PropTypes.array.isRequired,
 };
 
 export default ListBooks;
