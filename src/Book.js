@@ -13,22 +13,22 @@ const Book = ({book, handleUpdateBook}) => {
     const onChange = (event) => {
         const value = event.target.value;
         setShelfSelect(value);
-        handleUpdateBook(book, value)
+        handleUpdateBook(book, value);
     };
 
     useEffect(() => {
         if (shelf) {
-            setShelfSelect(shelf)
+            setShelfSelect(shelf);
         };
     }, [shelf]);
 
     const bookImageUrl = () => {
         if (imageLinks?.thumbnail) {
-            return imageLinks.thumbnail
+            return imageLinks.thumbnail;
         } else {
-            return ""
+            return "";
         };
-    }
+    };
 
     return (
         <li className="book">
