@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const Book = ({book, handleUpdateBook}) => {
@@ -8,13 +8,19 @@ const Book = ({book, handleUpdateBook}) => {
         shelf,
         title
     } = book;
-    const [shelfSelect, setShelfSelect] = useState(shelf);
+    const [shelfSelect, setShelfSelect] = useState("none");
 
     const onChange = (event) => {
         const value = event.target.value;
         setShelfSelect(value);
         handleUpdateBook(book, value)
     };
+
+    useEffect(() => {
+        if (shelf) {
+            setShelfSelect(shelf)
+        };
+    }, []);
 
     return (
         <li className="book">
@@ -44,7 +50,7 @@ const Book = ({book, handleUpdateBook}) => {
             </div>
             <div className="book-title">{title}</div>
             <div className="book-authors">
-                {authors.map((author) => (
+                {authors && authors.map((author) => (
                     author
                 ))}
             </div>
