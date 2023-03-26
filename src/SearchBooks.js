@@ -15,7 +15,7 @@ const SearchBooks = ({onUpdateBook, books}) => {
         setQuery(searchTerm);
         searchBooks(searchTerm);
     };
-    
+
     const searchBooks = async (query) => {
         let results = await BooksAPI.search(query);
 
