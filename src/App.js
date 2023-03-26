@@ -12,7 +12,7 @@ function App() {
     const update = async () => {
       const response = await BooksAPI.update(book, shelf)
       console.log(response)
-    }
+    };
 
     update();
   };

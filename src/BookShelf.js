@@ -24,6 +24,6 @@ BookShelf.propTypes = {
     books: PropTypes.array.isRequired,
     handleUpdateBook: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
-}
+};
 
 export default BookShelf;

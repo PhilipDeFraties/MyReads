@@ -61,6 +61,6 @@ const Book = ({book, handleUpdateBook}) => {
 Book.propTypes = {
     book: PropTypes.object.isRequired,
     handleUpdateBook: PropTypes.func.isRequired,
-}
+};
 
 export default Book;
