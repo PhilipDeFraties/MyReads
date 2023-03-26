@@ -1,5 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom"
 import * as BooksAPI from "./BooksAPI"
 import ListBooks from "./ListBooks";
 import SearchBooks from "./SearchBooks";
@@ -11,7 +12,6 @@ function App() {
   const updateBook = (book, shelf) => {
     const update = async () => {
       const response = await BooksAPI.update(book, shelf)
-      console.log(response)
     };
 
     update();
@@ -27,13 +27,12 @@ function App() {
   }, [updateBook]);
 
   return (
-    <div className="app">
-      {showSearchPage ? (
-        <SearchBooks onUpdateBook={updateBook} books={books}/>
-      ) : (
-        <ListBooks books={books} onUpdateBook={updateBook}/>
-      )}
-    </div>
+    <Routes>
+      <Route exact path="/" element={
+        <ListBooks books={books} onUpdateBook={updateBook} />
+      } />
+      <Route path="/search" element={<SearchBooks onUpdateBook={updateBook} books={books} />} />
+    </Routes>
   );
 };
 
