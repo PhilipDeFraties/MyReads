@@ -1,4 +1,6 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
+
 const Book = ({book, handleUpdateBook}) => {
     const {
         authors,
@@ -49,5 +51,10 @@ const Book = ({book, handleUpdateBook}) => {
         </li>
     );
 };
+
+Book.propTypes = {
+    book: PropTypes.object.isRequired,
+    handleUpdateBook: PropTypes.func.isRequired,
+}
 
 export default Book;
