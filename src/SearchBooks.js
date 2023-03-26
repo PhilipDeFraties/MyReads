@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import * as BooksAPI from "./BooksAPI"
 import Book from "./Book";
 
@@ -60,6 +61,11 @@ const SearchBooks = ({onUpdateBook, books}) => {
             </div>
         </div>
     );
+};
+
+SearchBooks.propTypes = {
+    onUpdateBook: PropTypes.func.isRequired,
+    books: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default SearchBooks;
