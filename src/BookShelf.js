@@ -10,7 +10,7 @@ const BookShelf = ({name, books, handleUpdateBook}) => {
                     {books.map((book) => (
                         <Book 
                             key={book.title} 
-                            book={book} 
+                            book={book}
                             handleUpdateBook={handleUpdateBook}
                         />
                     ))}
