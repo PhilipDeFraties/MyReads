@@ -26,7 +26,7 @@ const Book = ({book, handleUpdateBook}) => {
         if (imageLinks?.thumbnail) {
             return imageLinks.thumbnail
         } else {
-            return "https://broken-link-goes-here"
+            return ""
         };
     }
 
