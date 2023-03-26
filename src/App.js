@@ -11,7 +11,7 @@ function App() {
 
   const updateBook = (book, shelf) => {
     const update = async () => {
-      const response = await BooksAPI.update(book, shelf)
+      const response = await BooksAPI.update(book, shelf);
     };
 
     update();

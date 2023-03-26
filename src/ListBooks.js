@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import BookShelf from "./BookShelf.js"
+import BookShelf from "./BookShelf.js";
 
 const ListBooks = ({books, onUpdateBook}) => {
     const wantToReadbooks = {
@@ -18,7 +18,7 @@ const ListBooks = ({books, onUpdateBook}) => {
         books: books.filter(b => b.shelf === "read")
     };
 
-    const sortedBooks = [wantToReadbooks, currentlyReadingBooks, readBooks]
+    const sortedBooks = [wantToReadbooks, currentlyReadingBooks, readBooks];
 
     return (
         <div className="list-books">
