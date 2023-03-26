@@ -20,7 +20,15 @@ const Book = ({book, handleUpdateBook}) => {
         if (shelf) {
             setShelfSelect(shelf)
         };
-    }, []);
+    }, [shelf]);
+
+    const bookImageUrl = () => {
+        if (imageLinks?.thumbnail) {
+            return imageLinks.thumbnail
+        } else {
+            return "https://broken-link-goes-here"
+        };
+    }
 
     return (
         <li className="book">
@@ -31,7 +39,7 @@ const Book = ({book, handleUpdateBook}) => {
                         width: 128,
                         height: 193,
                         backgroundImage:
-                            `url("${imageLinks.thumbnail}")`,
+                            `url("${bookImageUrl()}")`,
                     }}
                 ></div>
                 <div className="book-shelf-changer">
