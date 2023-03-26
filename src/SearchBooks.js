@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import * as BooksAPI from "./BooksAPI";
+import * as BooksAPI from "./BooksAPI"
 import Book from "./Book";
 
 const SearchBooks = ({ onUpdateBook, books }) => {
@@ -11,20 +11,26 @@ const SearchBooks = ({ onUpdateBook, books }) => {
     const handleChange = (event) => {
         const searchTerm = event.target.value;
         setQuery(searchTerm);
-        searchBooks(searchTerm);
+
+        if (searchTerm.length > 0) {
+            searchBooks(searchTerm);
+        } else {
+            setSearchResults([]);
+        };
     };
 
     const searchBooks = async (query) => {
         let results = await BooksAPI.search(query);
 
-        if (results.length > 1) {
-            results.map((result) => {
+        if (results.length > 0) {
+            results.forEach((result) => {
                 const existingBook = books.find((book) => book.id === result.id)
                 result.shelf = existingBook?.shelf
             });
+            setSearchResults(results);
+        } else {
+            setSearchResults([]);
         };
-
-        setSearchResults(results);
     };
 
     return (
