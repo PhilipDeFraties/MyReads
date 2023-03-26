@@ -7,6 +7,15 @@ function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
   const [books, setBooks] = useState([]);
 
+  const updateBook = (book, shelf) => {
+    const update = async () => {
+      const response = await BooksAPI.update(book, shelf)
+      console.log(response)
+    }
+
+    update();
+  };
+
   useEffect(() => {
     const getBooks = async () => {
       const response = await BooksAPI.getAll();
@@ -14,7 +23,7 @@ function App() {
     };
 
     getBooks();
-  }, []);
+  }, [updateBook]);
 
   return (
     <div className="app">
@@ -39,7 +48,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <ListBooks books={books}/>
+        <ListBooks books={books} onUpdateBook={updateBook}/>
       )}
     </div>
   );

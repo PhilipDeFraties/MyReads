@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import BookShelf from "./BookShelf.js"
 
-const ListBooks = ({books}) => {
+const ListBooks = ({books, onUpdateBook}) => {
     const wantToReadbooks = {
         name: "Want To Read",
         books: books.filter(b => b.shelf === "wantToRead")
@@ -30,6 +30,7 @@ const ListBooks = ({books}) => {
                             key={shelf.name}
                             name={shelf.name}
                             books={shelf.books}
+                            handleUpdateBook={onUpdateBook}
                         />
                     ))}
             </div>
