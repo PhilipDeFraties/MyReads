@@ -28,7 +28,7 @@ const Book = ({book, handleUpdateBook}) => {
         } else {
             return ""
         };
-    }
+    };
 
     return (
         <li className="book">
