@@ -22,7 +22,7 @@ const BookShelf = ({name, books, handleUpdateBook}) => {
 
 BookShelf.propTypes = {
     books: PropTypes.array.isRequired,
-    onUpdateBook: PropTypes.func.isRequired,
+    handleUpdateBook: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
 }
 
