@@ -1,15 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import * as BooksAPI from "./BooksAPI"
 import Book from "./Book";
 
-const SearchBooks = ({onUpdateBook, books}) => {
+const SearchBooks = ({ onUpdateBook, books }) => {
     const [query, setQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-
-    const closeSearch = () => {
-        console.log("Close search link clicked")
-    };
 
     const handleChange = (event) => {
         const searchTerm = event.target.value;
@@ -33,12 +30,9 @@ const SearchBooks = ({onUpdateBook, books}) => {
     return (
         <div className="search-books">
             <div className="search-books-bar">
-                <a
-                    className="close-search"
-                    onClick={() => closeSearch()}
-                >
+                <Link className="close-search" to="/">
                     Close
-                </a>
+                </Link>
                 <div className="search-books-input-wrapper">
                     <input
                         type="text"
