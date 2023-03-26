@@ -25,7 +25,6 @@ const ListBooks = ({books}) => {
                 <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <ol>
                     {sortedBooks.map((shelf) => (
                         <BookShelf 
                             key={shelf.name}
@@ -33,7 +32,6 @@ const ListBooks = ({books}) => {
                             books={shelf.books}
                         />
                     ))}
-                </ol>
             </div>
             <div className="open-search">
                 <a>Add a book</a>
