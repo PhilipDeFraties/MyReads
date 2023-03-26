@@ -5,7 +5,7 @@ import ListBooks from "./ListBooks";
 
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
@@ -43,6 +43,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

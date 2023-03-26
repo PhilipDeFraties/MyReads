@@ -5,17 +5,17 @@ const ListBooks = ({books}) => {
     const wantToReadbooks = {
         name: "Want To Read",
         books: books.filter(b => b.shelf === "wantToRead")
-    }
+    };
 
     const currentlyReadingBooks = {
         name: "Currently Reading",
         books: books.filter(b => b.shelf === "currentlyReading")
-    }
+    };
 
     const readBooks = {
         name: "Read",
         books: books.filter(b => b.shelf === "read")
-    }
+    };
 
     const sortedBooks = [wantToReadbooks, currentlyReadingBooks, readBooks]
 
