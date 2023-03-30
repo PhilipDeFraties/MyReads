@@ -10,3 +10,11 @@ To run application locally:
 - start the development server with `npm start`
 
 This application is served by a dedicated api that returns and updates book information.
+
+Todo:
+1. add debounce to book search input
+2. convert components to typescript
+3. implement zod schemas for typescript components
+4. add user login functionality
+5. connect to rails db
+6. connect to node.js db?
