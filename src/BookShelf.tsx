@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Book from "./Book";
 
-type Book = {
+type BookProps = {
     authors: string[];
     imageLinks: {
         smallThumbnail: string;
@@ -13,8 +13,8 @@ type Book = {
 
 type BookShelfProps = {
     name: string;
-    books: Book[];
-    handleUpdateBook: (book: Book, shelf: string) => void;
+    books: BookProps[];
+    handleUpdateBook: (book: BookProps, shelf: string) => void;
 };
 
 const BookShelf = ({
