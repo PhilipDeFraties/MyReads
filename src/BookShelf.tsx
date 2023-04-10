@@ -1,7 +1,27 @@
 import PropTypes from "prop-types";
 import Book from "./Book";
 
-const BookShelf = ({name, books, handleUpdateBook}) => {
+type Book = {
+    authors: string[];
+    imageLinks: {
+        smallThumbnail: string;
+        thumbnail: string;
+    };
+    shelf: string;
+    title: string;
+}
+
+type BookShelfProps = {
+    name: string;
+    books: Book[];
+    handleUpdateBook: (book: Book, shelf: string) => void;
+};
+
+const BookShelf = ({
+    name,
+    books, 
+    handleUpdateBook,
+}: BookShelfProps) => {
     return (
         <div className="bookshelf">
             <h2 className="bookshelf-title">{name}</h2>
