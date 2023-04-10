@@ -1,16 +1,32 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-const Book = ({book, handleUpdateBook}) => {
+type BookProps = {
+    book: {
+        authors: string[];
+        imageLinks: {
+            smallThumbnail: string;
+            thumbnail: string;
+        };
+        shelf: string;
+        title: string;
+    }
+    handleUpdateBook: (book: BookProps["book"], shelf: string) => void;
+};
+
+const Book = ({
+    book, handleUpdateBook
+}: BookProps) => {
     const {
         authors,
         imageLinks,
         shelf,
         title
     } = book;
+
     const [shelfSelect, setShelfSelect] = useState("none");
 
-    const onChange = (event) => {
+    const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setShelfSelect(value);
         handleUpdateBook(book, value);
